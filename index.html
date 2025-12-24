@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Pop-up Intim</title>
+<style>
+  body {
+    background-color: black;
+    font-family: Arial, sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+  }
+
+  .popup {
+    display: none;
+    flex-direction: column;
+    align-items: center;
+    background-color: black;
+    border: 3px solid red;
+    border-radius: 15px;
+    padding: 30px;
+    max-width: 500px;
+    text-align: center;
+    color: pink;
+    box-shadow: 0 0 20px rgba(255, 0, 0, 0.7);
+  }
+
+  .popup button {
+    margin-top: 20px;
+    padding: 10px 20px;
+    background-color: pink;
+    border: none;
+    border-radius: 10px;
+    font-size: 16px;
+    cursor: pointer;
+    color: black;
+  }
+
+  .heart {
+    display: none;
+    font-size: 80px;
+    color: red;
+    margin-top: 20px;
+  }
+</style>
+</head>
+<body>
+
+<div class="popup" id="popup">
+  <div id="message"></div>
+  <button id="nextBtn">OK</button>
+</div>
+
+<div class="heart" id="heart">❤️</div>
+
+<script>
+  const messages = [
+    "Hello, mister Wook.",
+    "This is Santa, and someone told me you have been both good... and naughty.",
+    "Is that true?",
+    "She wants to tell you a secret.",
+    "You own her heart.",
+    "And she wants you to know you are making her life complete.",
+    "I love you, dearly, and endlessly.",
+    "Your one and only, Elisè.",
+    "And... I hope you don't mind the pink theme. It is my first time coding~"
+  ];
+
+  const popup = document.getElementById('popup');
+  const messageDiv = document.getElementById('message');
+  const nextBtn = document.getElementById('nextBtn');
+  const heart = document.getElementById('heart');
+
+  let index = 0;
+
+  popup.style.display = 'flex';
+  messageDiv.textContent = messages[index];
+
+  nextBtn.addEventListener('click', () => {
+    index++;
+    if(index < messages.length) {
+      messageDiv.textContent = messages[index];
+    } else {
+      popup.style.display = 'none';
+      heart.style.display = 'block';
+    }
+  });
+</script>
+
+</body>
+</html>
